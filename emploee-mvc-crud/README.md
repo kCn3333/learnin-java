@@ -5,6 +5,7 @@ A Spring Boot CRUD application for managing employees with Spring MVC + Thymelea
 It also demonstrates the use of Spring AOP for logging cross-cutting concerns across controllers, services, and DAOs.
 
 <img src="img/screenshot.png" alt="screenshot"/>
+
 ---
 ### Technologies
 
@@ -34,7 +35,7 @@ It also demonstrates the use of Spring AOP for logging cross-cutting concerns ac
 ---
 ### Features
 
-- List all employees (GET /employees).
+- List all employees (`GET /employees`).
 - Show employee details.
 - Add a new employee.
 - Update existing employee.
