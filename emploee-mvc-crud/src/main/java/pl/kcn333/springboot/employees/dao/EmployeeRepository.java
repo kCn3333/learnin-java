@@ -1,0 +1,11 @@
+package pl.kcn333.springboot.employees.dao;
+
+import pl.kcn333.springboot.employees.entity.Employee;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+
+    List<Employee> findAllByOrderByLastNameAsc();
+}
