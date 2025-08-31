@@ -35,36 +35,30 @@ Course ↔ Student (Many-to-Many)
 
 The AdvancedCrudDemoApplication class contains ready-to-use methods demonstrating:
 
-creating an instructor with an associated `InstructorDetail`,
+- creating an instructor with an associated `InstructorDetail`,
 
-adding courses to an instructor,
+- adding courses to an instructor,
 
-adding students to a course,
+- adding students to a course,
 
-adding reviews to a course,
+- adding reviews to a course,
 
-fetching entities with their relationships (Eager/Join Fetch),
+- fetching entities with their relationships (Eager/Join Fetch),
 
-updating and deleting entities (`Instructor`, `Course`, `Student`).
+- updating and deleting entities (`Instructor`, `Course`, `Student`).
 
 
 ### Configuration
 
-Create a PostgreSQL database, e.g.:
-```sql
-CREATE DATABASE advanced_crud_demo;
-```
+Create a PostgreSQL database with `sql-scripts/schema.sql`
 
 Configure the connection in application.properties:
 ```
-spring.datasource.url=jdbc:postgresql://localhost:5432/advanced_crud_demo
+spring.datasource.url=jdbc:postgresql://localhost:5432/db
 spring.datasource.username=postgres
 spring.datasource.password=your_password
-spring.jpa.hibernate.ddl-auto=create
-spring.jpa.show-sql=true
 ```
 
-(the value `ddl-auto=create` will recreate schema on startup – for production use `update` or `validate` instead).
 
 ### Running the Application
 
