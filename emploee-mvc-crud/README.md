@@ -47,7 +47,7 @@ It also demonstrates the use of Spring AOP for logging cross-cutting concerns ac
 
 1. Create the database and run `sql-scripts/employee-directory.sql`.
 
-2. Adjust application.properties with your PostgreSQL credentials.
+2. Adjust `application.properties` with your PostgreSQL credentials.
 
 3. Start the app:
 ```
