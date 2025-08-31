@@ -4,7 +4,7 @@
 A Spring Boot CRUD application for managing employees with Spring MVC + Thymeleaf UI, Spring Data JPA, and PostgreSQL.
 It also demonstrates the use of Spring AOP for logging cross-cutting concerns across controllers, services, and DAOs.
 
-<img src="img/screenshot.png" alt="screenshot"/>
+<img align=center src="img/screenshot.png" alt="screenshot"/>
 
 ---
 ### Technologies
