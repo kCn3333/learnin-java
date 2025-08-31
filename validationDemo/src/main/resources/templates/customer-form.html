@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #f8f9fa;
+        }
+        .form-control, .form-label {
+            background-color: #1f1f1f;
+            color: #f8f9fa;
+        }
+        .form-control:focus {
+            background-color: #2a2a2a;
+            color: #ffffff;
+            border-color: #4caf50;
+        }
+        .btn-primary {
+            background-color: #4caf50;
+            border-color: #4caf50;
+        }
+        .btn-primary:hover {
+            background-color: #45a049;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2 class="mb-4 text-center">Customer Details</h2>
+
+    <form th:action="@{/process}" th:object="${customer}" method="post">
+
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" th:field="*{firstName}" class="form-control" id="firstName">
+            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="text-danger small"/>
+        </div>
+
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" th:field="*{lastName}" class="form-control" id="lastName">
+            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="text-danger small"/>
+        </div>
+
+        <div class="mb-3">
+            <label for="passes" class="form-label">Free passes</label>
+            <input type="text" th:field="*{passes}" class="form-control" id="passes">
+            <span th:if="${#fields.hasErrors('passes')}" th:errors="*{passes}" class="text-danger small"/>
+        </div>
+        <div class="mb-3">
+            <label for="postalCode" class="form-label">Postal Code</label>
+            <input type="text" th:field="*{postalCode}" class="form-control" id="postalCode">
+            <span th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}" class="text-danger small"/>
+        </div>
+        <div class="mb-3">
+            <label for="courseCode" class="form-label">Course Code</label>
+            <input type="text" th:field="*{courseCode}" class="form-control" id="courseCode">
+            <span th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" class="text-danger small"/>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
