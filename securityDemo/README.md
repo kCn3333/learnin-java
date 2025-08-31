@@ -3,6 +3,7 @@
 
 This project demonstrates Spring Security integration with Spring Boot, Thymeleaf, and PostgreSQL.
 It shows how to secure routes based on user roles, authenticate users with a database, and customize login/logout pages.
+
 ---
 ### Technologies
 
