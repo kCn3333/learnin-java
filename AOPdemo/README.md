@@ -28,7 +28,7 @@ The application runs from a `CommandLineRunner` and demonstrates how aspects are
 
   - `MembershipDAO` – simulates membership-related operations.
 
-`AoPdemoApplication` – main Spring Boot application. 
+- `AoPdemoApplication` – main Spring Boot application. 
 
      - Bootstraps the app with `@SpringBootApplication` and `@EnableAspectJAutoProxy`.
 
