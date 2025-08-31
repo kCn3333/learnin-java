@@ -1,0 +1,31 @@
+body {
+    background-color: black;
+    color: #00FF00;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+p {
+    text-shadow: 0 0 10px #00FF00;
+    animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.matrix-stream {
+    position: absolute;
+    white-space: nowrap;
+    color: #00FF00;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+}

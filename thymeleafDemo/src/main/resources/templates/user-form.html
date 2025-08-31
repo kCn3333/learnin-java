@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<head>
+    <meta charset="UTF-8">
+    <title>User Form</title>
+</head>
+<body>
+
+<p>User Registration Form:</p>
+<form th:action="@{/user}" th:object="${user}" method="POST">
+
+    First Name: <input type="text" th:field="*{firstName}"/>
+    <br>
+    Last Name: <input type="text" th:field="*{lastName}"/>
+    <br>
+    Country:
+    <select th:field="*{country}" class="form-select">
+        <option th:each="c : ${countries}" th:value="${c}" th:text="${c}"/>
+    </select>
+    <br>
+    <p>Choose your favorite programming language:</p>
+    <div th:each="lang : ${languageOptions}">
+        <input type="radio" th:field="*{favoriteLanguage}" th:value="${lang}" />
+        <label th:text="${lang}"></label><br>
+    </div>
+    <p>Choose your favorite OS System: </p>
+    <div th:each="os : ${systemsOptions}">
+    <input type="checkbox" th:field="*{favoriteOS}" th:value="${os}"/><label th:text="${os}"></label><br>
+    </div>
+
+
+    <br><br>
+    <input type="submit" value="show">
+
+</form>
+
+</body>
+</html>

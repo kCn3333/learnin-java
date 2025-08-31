@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+
+<body>
+
+<p>
+    User:
+</p>
+
+<br>First Name: <span th:text="${user.firstName}"/>
+<br>Last Name: <span th:text="${user.lastName}"/>
+<br>Country: <span th:text="${user.country}"/>
+<br>Favorite Language: <span th:text="${user.favoriteLanguage}"/>
+<br>Favorite OS:
+<ul>
+    <li th:each="os : ${user.favoriteOS}" th:text="${os}"/>
+</ul>
+
+</body>
+</html>
