@@ -1,0 +1,95 @@
+/* --- Variables --- */
+:root {
+  --primary-color: #6fa68f;       /* pastelowy jasnozielony */
+  --background-color: #1e1e1e;    /* ciemne tło strony */
+  --text-color: #e0e0e0;          /* jasny tekst */
+  --heading-color: #ffffff;       /* nagłówki */
+  --border-color: #555555;        /* obramowanie tabeli */
+  --row-even-color: #2a2a2a;      /* tło parzystych wierszy tabeli */
+}
+
+/* --- Table styles --- */
+.students {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.students td, .students th {
+  border: 1px solid var(--border-color);
+  padding: 8px;
+}
+
+.students tr:nth-child(even) {
+  background-color: var(--row-even-color);
+}
+
+.students tr:hover {
+  background-color: var(--border-color);
+}
+
+.students th {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: left;
+  background-color: var(--primary-color);
+  color: var(--heading-color);
+}
+.table-success {
+    color: #000000; /* czarny tekst */
+}
+/* --- Body styles --- */
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+}
+
+/* --- Card Dark Theme --- */
+.card {
+    background-color: #a8d5ba; /* ciemne tło karty */
+    color: #e0e0e0;  /* tekst ciemnoszary / jasny w razie potrzeby można ustawić #f0f0f0 */
+    border: 1px solid var(--border-color);
+}
+
+.card-header {
+    background-color: #a8d5ba; /* pastelowy jasnozielony akcent */
+    color: #000000; /* tekst nagłówka biały dla kontrastu */
+}
+
+.card-body {
+    background-color: inherit; /* dziedziczy tło karty */
+    color: #000000; /* dziedziczy kolor tekstu */
+}
+
+.card-title {
+    color: inherit; /* nagłówek w body dziedziczy kolor */
+}
+
+/* --- Buttons and highlights --- */
+.main-color {
+  background-color: var(--primary-color);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.btn-color {
+  background-color: var(--primary-color);
+  color: var(--heading-color);
+}
+
+/* --- Utility classes --- */
+.hide {
+  display: none;
+}
+
+.form {
+  margin: 10px;
+}
