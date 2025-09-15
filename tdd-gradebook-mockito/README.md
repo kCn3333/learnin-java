@@ -18,7 +18,7 @@ The project includes **unit and integration tests** with JUnit 5, Mockito, and M
 - View detailed student information with aggregated grades.
 - In-memory **H2 Database** for testing and development.
 - REST endpoints tested with **MockMvc**.
-
+***
 ### Tech Stack
 
 - **Java 24**
@@ -33,7 +33,7 @@ The project includes **unit and integration tests** with JUnit 5, Mockito, and M
     - spring-boot-starter-test (JUnit 5, Mockito, Spring Test)
 - **Build Tool**
     - Maven + Spring Boot Maven Plugin
-
+***
 ### Endpoints
 
 GET `/` → List all students.
@@ -47,7 +47,7 @@ GET `/studentInformation/{id}` → Detailed student info.
 POST `/grades` → Add a grade to a student.
 
 GET `/grades/{id}/{gradeType}` → Delete a specific grade.
-
+***
 ### Testing
 
 This project was developed following Test-Driven Development (TDD) principles, and the test suite ensures that all core functionalities of the application are correctly implemented and robust. The tests are written using **Spring Boot Test**, **JUnit 5**, **Mockito**, and **MockMvc**, covering both the service and controller layers.
@@ -62,7 +62,7 @@ Focus on business logic by testing all service methods, such as creating and del
 
 All tests are designed to be isolated and repeatable, with database state reset before and after each test. This guarantees consistent results and enforces reliable application behavior.
 
-
+***
 ### Databases
 
 The project uses different databases depending on the environment:
@@ -78,7 +78,7 @@ Unit and integration tests use an in-memory H2 database, which keeps tests fast 
 The schema.sql and data.sql files are only executed when running the application in production or locally with **PostgreSQL**.
 
 Tests annotated with `@SpringBootTest` use H2 and do not affect the real **PostgreSQL** data.
-
+***
 ### Running the Application
 
 1. Build the project.
