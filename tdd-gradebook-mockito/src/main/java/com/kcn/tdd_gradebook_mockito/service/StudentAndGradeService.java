@@ -23,13 +23,12 @@ public class StudentAndGradeService {
     private ScienceGradesDao scienceGradesDao;
     private HistoryGradesDao historyGradesDao;
 
-
-
     public StudentAndGradeService(StudentDao studentDao, MathGradesDao mathGradesDao, ScienceGradesDao scienceGradesDao, HistoryGradesDao historyGradesDao) {
         this.studentDao = studentDao;
         this.mathGradesDao = mathGradesDao;
         this.scienceGradesDao = scienceGradesDao;
         this.historyGradesDao = historyGradesDao;
+
     }
 
     public void createStudent(String firstName, String lastName, String emailAddress){
@@ -55,6 +54,54 @@ public class StudentAndGradeService {
 
     public Iterable<Student> getGradebook() {
         return studentDao.findAll();
+    }
+
+    public Gradebook getAllGradebook () {
+        StudentGrades studentGrades=new StudentGrades();
+
+        Iterable<Student> collegeStudents = studentDao.findAll();
+
+        Iterable<MathGrade> mathGrades = mathGradesDao.findAll();
+
+        Iterable<ScienceGrade> scienceGrades = scienceGradesDao.findAll();
+
+        Iterable<HistoryGrade> historyGrades = historyGradesDao.findAll();
+
+        Gradebook gradebook = new Gradebook();
+
+        for (Student collegeStudent : collegeStudents) {
+            List<Grade> mathGradesPerStudent = new ArrayList<>();
+            List<Grade> scienceGradesPerStudent = new ArrayList<>();
+            List<Grade> historyGradesPerStudent = new ArrayList<>();
+
+            for (MathGrade grade : mathGrades) {
+                if (grade.getStudentId() == collegeStudent.getId()) {
+                    mathGradesPerStudent.add(grade);
+                }
+            }
+            for (ScienceGrade grade : scienceGrades) {
+                if (grade.getStudentId() == collegeStudent.getId()) {
+                    scienceGradesPerStudent.add(grade);
+                }
+            }
+
+            for (HistoryGrade grade : historyGrades) {
+                if (grade.getStudentId() == collegeStudent.getId()) {
+                    historyGradesPerStudent.add(grade);
+                }
+            }
+
+            studentGrades.setMathGradeResults(mathGradesPerStudent);
+            studentGrades.setScienceGradeResults(scienceGradesPerStudent);
+            studentGrades.setHistoryGradeResults(historyGradesPerStudent);
+
+            GradebookStudent gradebookCollegeStudent = new GradebookStudent(collegeStudent.getId(), collegeStudent.getFirstName(), collegeStudent.getLastName(),
+                    collegeStudent.getEmailAddress(), studentGrades);
+
+            gradebook.getStudents().add(gradebookCollegeStudent);
+        }
+
+        return gradebook;
     }
 
     public boolean createGrade(double grade, int studentId, String gradeType) {

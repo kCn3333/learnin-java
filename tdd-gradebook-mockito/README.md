@@ -1,12 +1,12 @@
 ## 📚 Gradebook
 
-A sample **Spring Boot MVC + JPA + H2** project built using the **Test-Driven Development (TDD)** approach.  
+A sample **Spring Boot MVC + JPA** project built using the **Test-Driven Development (TDD)** approach.  
 This application was created as a way to learn and practice TDD by building features step by step with tests first.
 
 <img align=center src="img/img.png" alt="screenshot"/>
 
 It allows you to manage students, their grades in different subjects, and view detailed grade information.  
-The project includes **unit and integration tests** with JUnit 5, Mockito, and MockMvc.
+The project includes both traditional **Spring MVC** controllers and a **REST** controller, as well as **unit and integration tests** with JUnit 5, Mockito, and MockMvc.
 
 ---
 
@@ -23,7 +23,7 @@ The project includes **unit and integration tests** with JUnit 5, Mockito, and M
 
 - **Java 24**
 - **Spring Boot 3.5.5**
-    - spring-boot-starter-web (Spring MVC)
+    - spring-boot-starter-web (Spring MVC + REST)
     - spring-boot-starter-thymeleaf (view templates)
     - spring-boot-starter-data-jpa
 - **Databases**
@@ -47,6 +47,20 @@ GET `/studentInformation/{id}` → Detailed student info.
 POST `/grades` → Add a grade to a student.
 
 GET `/grades/{id}/{gradeType}` → Delete a specific grade.
+
+### REST API Endpoints (`/api/...`)
+
+GET `/api/` → Return all students as JSON.
+
+GET `/api/studentInformation/{id}` → Return detailed student info as JSON.
+
+POST `/api/` → Create a new student from JSON body.
+
+DELETE `/api/student/{id}` → Delete student by ID (returns updated list).
+
+POST `/api/grades?grade=&gradeType=&studentId=` → Add a grade to a student.
+
+DELETE `/api/grades/{id}/{gradeType}` → Delete a grade by ID and type.
 ***
 ### Testing
 
@@ -56,6 +70,9 @@ This project was developed following Test-Driven Development (TDD) principles, a
 
 Verify the behavior of HTTP endpoints, including creating, deleting, and fetching students and grades. These tests validate the correct HTTP response status, rendered views, and model attributes, as well as the persistence of data in the database. They also check for proper handling of invalid requests, non-existent students, and invalid grades.
 
+- **REST Controller Tests** (`GradebookRestControllerTest`):
+
+These tests focus on the GradebookRestController and validate all API endpoints. Using MockMvc, the tests simulate HTTP requests and verify response status codes, JSON content type, and the structure of returned data.
 - **Service Tests** (`StudentAndGradeServiceTest`): 
 
 Focus on business logic by testing all service methods, such as creating and deleting students, adding or removing grades, checking student existence, and retrieving detailed student information. Tests ensure proper interaction with the database and verify correct behavior for valid, invalid, and edge-case inputs.

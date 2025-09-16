@@ -1,5 +1,7 @@
 package com.kcn.tdd_gradebook_mockito.model;
 
+import org.springframework.context.annotation.Bean;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
